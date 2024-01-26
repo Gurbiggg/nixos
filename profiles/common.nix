@@ -1,4 +1,4 @@
-{ config, pkgs, timezone, locale, hostname, nixosGens, username, ...}:
+{ config, pkgs, timezone, locale, hostname, nixosGens, username, name, ...}:
 {
   imports = [
     ../modules/bootloader.nix
@@ -9,5 +9,6 @@
     ../modules/ssh.nix
     ../modules/virtualization.nix
     ../modules/x11.nix
+    ../modules/user.nix
   ];
 }

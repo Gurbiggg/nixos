@@ -2,7 +2,7 @@
 {
   networking = {
     hostName = hostname;
-    networkManager.enable = true;
+    networkmanager.enable = true;
     # Configure network proxy if necessary
     # proxy = {
     #   default = "http://user:password@proxy:port/";

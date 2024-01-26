@@ -5,6 +5,6 @@
     systemd-boot = {
       enable = true;
       configurationLimit = nixosGens;
-    }
-  }
+    };
+  };
 }

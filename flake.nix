@@ -12,19 +12,29 @@ inputs = {
 outputs = { self, nixpkgs, home-manager, ... }:
 let
   # default config variables
-  profilesPath = "./profiles/";
+  profilesPath = "/profiles";
+  username = "gurbiggg";
+  name = "name";
+  timezone = "America/Phoenix";
+  locale = "en_US.UTF-8";
+  nixosGens = 10;
 
 in {
   nixosConfigurations = {
     # host config profiles
     framework = nixpkgs.lib.nixosSystem{
       system = "x86_64-linux"; 
-      modules = lib.concatMap (${profilesPath}) [
-        /common.nix
+      modules = [
+        ./profiles/common.nix
+        ./profiles/gnome.nix
       ];
-
       specialArgs = {
-        hostname = "framework"
+        hostname = "framework";
+        inherit username;
+        inherit name;
+        inherit timezone;
+        inherit locale;
+        inherit nixosGens;
       };
     };
 
@@ -32,7 +42,7 @@ in {
       system = "x86_64-linux";
       modules = [];
       specialArgs = {
-        hostname = "legion"
+        hostname = "legion";
       };
     };
 
@@ -41,6 +51,14 @@ in {
       modules = [];
       specialArgs = {
         hostname = "server";
+      };
+    };
+
+    virt = nixpkgs.lib.nixosSystem{
+      system = "x86_64-linux";
+      modules = [];
+      specialArgs = {
+        hostname = "virt";
       };
     };
   };
