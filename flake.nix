@@ -34,7 +34,7 @@ in {
         ./profiles/common.nix
         ./profiles/gnome.nix
       ];
-      specialArgs = {
+      specialArgs = rec{
         systemSettings.hostname = "framework";
         inherit userSettings;
 	inherit systemSettings;
