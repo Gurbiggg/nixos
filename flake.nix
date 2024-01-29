@@ -12,12 +12,19 @@ inputs = {
 outputs = { self, nixpkgs, home-manager, ... }:
 let
   # default config variables
-  profilesPath = "/profiles";
-  username = "gurbiggg";
-  name = "name";
-  timezone = "America/Phoenix";
-  locale = "en_US.UTF-8";
-  nixosGens = 10;
+  userSettings = {  
+    username = "gurbiggg";
+    name = "Gehrig Dixon";
+  };
+  systemSettings = {
+    timezone = "America/Phoenix";
+    locale = "en_US.UTF-8";
+    nixosGens = 10;
+
+  };
+  hardwareSettings = {
+
+  };
 
 in {
   nixosConfigurations = {
@@ -30,11 +37,9 @@ in {
       ];
       specialArgs = {
         hostname = "framework";
-        inherit username;
-        inherit name;
-        inherit timezone;
-        inherit locale;
-        inherit nixosGens;
+        inherit userSettings;
+	inherit systemSettings;
+	inherit hardwareSettings;
       };
     };
 

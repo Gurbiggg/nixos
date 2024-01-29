@@ -1,10 +1,10 @@
-{ config, nixosGens, ... }:
+{ config, systemSettings, ... }:
 {
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot = {
       enable = true;
-      configurationLimit = nixosGens;
+      configurationLimit = systemSettings.nixosGens;
     };
   };
 }
