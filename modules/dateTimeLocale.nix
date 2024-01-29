@@ -1,4 +1,9 @@
-{ config, timezone, locale, ... }:
+{ config, systemSettings, ... }:
+
+let
+  timezone = systemSettings.timezone;
+  locale = systemSettings.locale;
+in
 {
   # Set time/locale
   time.timeZone = timezone;

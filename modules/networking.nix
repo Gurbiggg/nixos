@@ -1,4 +1,9 @@
-{ config, hostname, ... }:
+{ config, systemSettings, ... }:
+
+let
+  hostname = systemSettings.hostname;
+
+in
 {
   networking = {
     hostName = hostname;

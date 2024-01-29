@@ -1,4 +1,8 @@
-{ config, username, ... }:
+{ config, userSettings, ... }:
+
+let
+  username = userSettings.username;
+in
 {
   virtualisation = {
     docker.enable = true;

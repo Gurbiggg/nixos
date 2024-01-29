@@ -20,7 +20,6 @@ let
     timezone = "America/Phoenix";
     locale = "en_US.UTF-8";
     nixosGens = 10;
-
   };
   hardwareSettings = {
 
@@ -36,7 +35,7 @@ in {
         ./profiles/gnome.nix
       ];
       specialArgs = {
-        hostname = "framework";
+        systemSettings.hostname = "framework";
         inherit userSettings;
 	inherit systemSettings;
 	inherit hardwareSettings;
