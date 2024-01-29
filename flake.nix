@@ -21,18 +21,7 @@ let
     timezone = "America/Phoenix";
     locale = "en_US.UTF-8";
     nixosGens = 10;
-    hostname = "computer";
   };
-
-  userPackages = with pkgs;[
-    firefox
-  ];
-
-  systemPackages = with pkgs;[
-    neovim
-    alacritty
-    git
-  ];
 
 in {
   nixosConfigurations = {
@@ -51,8 +40,6 @@ in {
           hostname = "framework";
 	  nvidia = "false";
 	};
-	userPackages;
-	systemPackages;
       };
     };
 

@@ -2,8 +2,8 @@
 {
   environment.gnome.excludePackages = (with pkgs; [
     gnome-tour
-  ]) ++ (with pkgs.gnome; [
     gedit
+  ]) ++ (with pkgs.gnome; [
     gnome-music
     epiphany
     geary
@@ -20,8 +20,8 @@
     gnome-extension-manager
     gnome.gnome-boxes
     gnome.dconf-editor
-	  gnome.gnome-tweaks	
+    gnome.gnome-tweaks	
   ];
 
-  excludePackages = [ pkgs.xterm ];
+  services.xserver.excludePackages = [ pkgs.xterm ];
 }

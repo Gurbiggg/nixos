@@ -1,7 +1,10 @@
-{ config, userSettings, userPackages, ... }:
+{ config, pkgs, userSettings, ... }:
 let
   username = userSettings.username;
   name = userSettings.name;
+  userPackages = with pkgs; [
+    firefox 
+  ];
 in
 {
   users.users.${username} = {

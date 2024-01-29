@@ -8,6 +8,7 @@
     ../modules/networking.nix
     ../modules/nix.nix
     ../modules/pipewire.nix
+    ../modules/pkgs.nix
     ../modules/ssh.nix
     ../modules/virtualization.nix
     ../modules/user.nix
