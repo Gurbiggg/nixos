@@ -1,4 +1,4 @@
-{ config, userSettings, ... }:
+{ config, userSettings, userPackages, ... }:
 let
   username = userSettings.username;
   name = userSettings.name;
@@ -8,5 +8,6 @@ in
     isNormalUser = true;
     description = name;
     extraGroups = [ "networkmanager" "wheel" ];
+    packages = userPackages;
   };
 }

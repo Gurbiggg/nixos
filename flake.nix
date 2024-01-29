@@ -16,15 +16,23 @@ let
     username = "gurbiggg";
     name = "Gehrig Dixon";
   };
+
   systemSettings = {
     timezone = "America/Phoenix";
     locale = "en_US.UTF-8";
     nixosGens = 10;
     hostname = "computer";
   };
-  hardwareSettings = {
 
-  };
+  userPackages = with pkgs;[
+    firefox
+  ];
+
+  systemPackages = with pkgs;[
+    neovim
+    alacritty
+    git
+  ];
 
 in {
   nixosConfigurations = {
@@ -32,6 +40,7 @@ in {
     framework = nixpkgs.lib.nixosSystem{
       system = "x86_64-linux"; 
       modules = [
+        ./scratch.nix
         ./profiles/common.nix
         ./profiles/gnome.nix
       ];
@@ -40,33 +49,36 @@ in {
 	inherit systemSettings;
 	hardwareSettings = {
           hostname = "framework";
+	  nvidia = "false";
 	};
+	userPackages;
+	systemPackages;
       };
     };
 
-    legion = nixpkgs.lib.nixosSystem{
-      system = "x86_64-linux";
-      modules = [];
-      specialArgs = {
-        hostname = "legion";
-      };
-    };
-
-    server = nixpkgs.lib.nixosSystem{
-      system = "x86_64-linux";
-      modules = [];
-      specialArgs = {
-        hostname = "server";
-      };
-    };
-
-    virt = nixpkgs.lib.nixosSystem{
-      system = "x86_64-linux";
-      modules = [];
-      specialArgs = {
-        hostname = "virt";
-      };
-    };
+#    legion = nixpkgs.lib.nixosSystem{
+#      system = "x86_64-linux";
+#      modules = [];
+#      specialArgs = {
+#        hostname = "legion";
+#      };
+#   };
+#
+#    server = nixpkgs.lib.nixosSystem{
+#      system = "x86_64-linux";
+#      modules = [];
+#      specialArgs = {
+#        hostname = "server";
+#      };
+#    };
+#
+#    virt = nixpkgs.lib.nixosSystem{
+#      system = "x86_64-linux";
+#      modules = [];
+#      specialArgs = {
+#        hostname = "virt";
+#      };
+#    };
   };
 
   homeConfigurations = {

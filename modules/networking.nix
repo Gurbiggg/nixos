@@ -1,7 +1,7 @@
-{ config, systemSettings, ... }:
+{ config, hardwareSettings, ... }:
 
 let
-  hostname = systemSettings.hostname;
+  hostname = hardwareSettings.hostname;
 
 in
 {
