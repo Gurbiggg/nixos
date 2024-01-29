@@ -4,6 +4,7 @@
     ../modules/bootloader.nix
     ../modules/dateTimeLocale.nix
     ../modules/display.nix
+    ../modules/hardware.nix
     ../modules/networking.nix
     ../modules/nix.nix
     ../modules/pipewire.nix
