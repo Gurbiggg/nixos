@@ -15,6 +15,8 @@ let
   userSettings = {  
     username = "gurbiggg";
     name = "Gehrig Dixon";
+    homeDir = "/home/gurbiggg";
+    version = 24.05;
   };
 
   systemSettings = {
@@ -75,7 +77,6 @@ in {
   };
 
   homeConfigurations = {
-    gurbiggg = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
         ./profiles/home.nix 
