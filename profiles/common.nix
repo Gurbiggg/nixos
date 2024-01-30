@@ -1,4 +1,4 @@
-{ config, pkgs, userSettings, systemSettings, hardwareSettings, ...}:
+{ config, pkgs, systemSettings, hardwareSettings, userSettings, ...}:
 {
   imports = [
     ../modules/bootloader.nix

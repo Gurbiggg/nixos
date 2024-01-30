@@ -22,6 +22,12 @@ let
     locale = "en_US.UTF-8";
     nixosGens = 10;
   };
+  
+  pkgs = import nixpkgs {
+    system = "x86_64";
+    config = {
+      allowUnfree = true;
+    };
 
 in {
   nixosConfigurations = {
@@ -69,8 +75,11 @@ in {
   };
 
   homeConfigurations = {
-    #user profile
-
+    gurbiggg = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        ./profiles/home.nix 
+      ];
+    };
   };
-};
 }
